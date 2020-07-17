@@ -1,11 +1,11 @@
 React Assets Maven Plugin
 =======================
-[![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
+[![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master&status=passed)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
 
 This Maven plugin lets you update react build assets in your view template during build process.
 
 ## Objectives
-Build ReactJS application with server rendering feature sometimes very messy, because compiled files naming are dynamically generated.
+Build ReactJS + spring-boot application with server rendering feature sometimes very messy, because compiled files naming are dynamically generated.
 
 Often we come up with solution to rename the compiled file to static predefine naming, but this
 can easily break the code splitting or can caused something unexpected because of server cache.
