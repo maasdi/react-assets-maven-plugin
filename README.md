@@ -6,7 +6,8 @@ This Maven plugin lets you process your server render view template to link with
 
 ## Objectives
 Build ReactJS app with server rendering feature on top of java framework sometimes very messy,
-because compiled files naming are dynamic.
+because compiled files naming are dynamically generated.
+
 Often we come up with solution to rename the compiled file to static predeine naming, but this
 can easily break the code spliting or can caused something unexpected because of server cache.
 
