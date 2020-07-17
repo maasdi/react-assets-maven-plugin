@@ -44,7 +44,7 @@ Then
 			<plugin>
                 <groupId>com.github.maasdi</groupId>
                 <artifactId>react-assets-maven-plugin</artifactId>
-                <version>1.0.0-RELEASE</version>
+                <version>1.0.0</version>
                 <executions>
                     <execution>
                         <configuration>
