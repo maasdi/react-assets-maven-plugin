@@ -31,6 +31,12 @@ public class SimpleAssetProcessorTest {
         final String outputDir = path + File.separator + "output";
         final String outputPath = outputDir + File.separator + "server.html";
         
+        // Make sure file exists
+        File outFile = new File(outputPath);
+        if (!outFile.exists()) {
+            outFile.createNewFile();
+        }
+        
         AssetManifest manifest = new Gson().fromJson(
                 new FileReader(assetsDirectory.getPath() + File.separator + manifestName), AssetManifest.class);
         
