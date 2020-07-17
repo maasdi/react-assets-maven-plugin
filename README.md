@@ -9,7 +9,7 @@ because compiled files naming are dynamic.
 Often we come up with solution to rename the compiled file to static predeine naming, but this
 can easily break the code spliting or can caused something unexpected because of server cache.
 
-This plugin will let handle the issue during build time.
+This plugin will let you connecting the react assets and server render view during build time.
 
 
 ## Usage
