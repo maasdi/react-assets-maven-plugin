@@ -2,14 +2,13 @@ React Assets Maven Plugin
 =======================
 [![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
 
-This Maven plugin lets you process your server render view template to link with react build assets.
+This Maven plugin lets you update react build assets in your view template during build process.
 
 ## Objectives
-Build ReactJS app with server rendering feature on top of java framework sometimes very messy,
-because compiled files naming are dynamically generated.
+Build ReactJS application with server rendering feature sometimes very messy, because compiled files naming are dynamically generated.
 
-Often we come up with solution to rename the compiled file to static predeine naming, but this
-can easily break the code spliting or can caused something unexpected because of server cache.
+Often we come up with solution to rename the compiled file to static predefine naming, but this
+can easily break the code splitting or can caused something unexpected because of server cache.
 
 This plugin will let you connecting the react assets and server render view during build time.
 
@@ -19,47 +18,47 @@ Given that you have template `/src/main/resources/templates/app.html`
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="manifest" href="/manifest.json" />
     <title>Test Server Render HTML</title>
     <ReactAssetCss/> <!-- Will replace by plugin -->
-</head>
-<body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
-<ReactAssetRuntime/> <!-- Will replace by plugin -->
-<ReactAssetJs/> <!-- Will replace by plugin -->
-</body>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <ReactAssetRuntime/> <!-- Will replace by plugin -->
+    <ReactAssetJs/> <!-- Will replace by plugin -->
+  </body>
 </html>
 ```
 
 Then 
 
 ```xml
-			<plugin>
-                <groupId>com.github.maasdi</groupId>
-                <artifactId>react-assets-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <configuration>
-							<assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
-                            <resources>
-                                <resources>
-                                    <file>${project.basedir}/src/main/resources/templates/app.html</file>
-                                    <outputDir>${project.basedir}/target/classes/templates</outputDir>
-                                </resources>
-                            </resources>
-                        </configuration>
-                        <goals>
-                            <goal>process-asset</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<plugin>
+  <groupId>com.github.maasdi</groupId>
+  <artifactId>react-assets-maven-plugin</artifactId>
+  <version>1.0.0</version>
+  <executions>
+    <execution>
+      <configuration>
+		  <assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
+         <resources>
+           <resource>
+             <file>${project.basedir}/src/main/resources/templates/app.html</file>
+             <outputDir>${project.basedir}/target/classes/templates</outputDir>
+           </resource>
+         </resources>
+      </configuration>
+      <goals>
+        <goal>process-asset</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```
 
 ## Options
