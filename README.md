@@ -1,5 +1,6 @@
 React Assets Maven Plugin
 =======================
+[![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
 
 This Maven plugin lets you process your server render view template to link with react build assets.
 
