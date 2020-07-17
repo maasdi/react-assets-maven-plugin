@@ -45,7 +45,7 @@ Then
   <executions>
     <execution>
       <configuration>
-		  <assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
+        <assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
          <resources>
            <resource>
              <file>${project.basedir}/src/main/resources/templates/app.html</file>
@@ -63,11 +63,11 @@ Then
 
 ## Options
 * `assetsDirectory` - The react assets directory, this directory should be react build folder or folder with similar structure.
-* `resources` - The resources to process, possibly jsp, fremarker template or any html file.
+* `resources` - The resources to process, possibly jsp, FreeMarker template or any html file.
 * `manifestName` - The manifest file name, default value is `asset-manifest.json`.
-* `cssMarkup` - The css markup that will be replace during resource is processed. default value is `<ReactAssetCss/>`.
-* `jsMarkup` - The javascript markup that will be replace during resource is processed. default value is `<ReactAssetJs/>`.
-* `runtimeMarkup` - The main-runtime markup that will be replace during resource is processed. default value is `<ReactAssetRuntime/>`.
+* `cssMarkup` - The css markup that will be replace. default value is `<ReactAssetCss/>`.
+* `jsMarkup` - The javascript markup that will be replace. default value is `<ReactAssetJs/>`.
+* `runtimeMarkup` - The main-runtime markup that will be replace. default value is `<ReactAssetRuntime/>`.
 
 ## Licenses:
 * Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
