@@ -70,5 +70,9 @@ Then
 * `jsMarkup` - The javascript markup that will be replace (case sensitive). default value is `<ReactAssetJs/>`.
 * `runtimeMarkup` - The main-runtime markup that will be replace (case sensitive). default value is `<ReactAssetRuntime/>`.
 
+## Sample
+
+There is sample of SpringBoot + ReactJS Sample [here](https://github.com/maasdi/react-assets-maven-plugin-sample)
+
 ## Licenses:
 * Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
