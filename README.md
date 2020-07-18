@@ -5,12 +5,13 @@ React Assets Maven Plugin
 This Maven plugin help you sync view template (JSP, FreeMarker, Thymeleaf) and react build assets during build process.
 
 ## Objectives
-Build ReactJS + Spring application with server rendering view sometimes very messy, because `react-scripts build` generated files with random suffix.
+Build React + Spring application with server rendering view sometimes very messy, 
+because `npm run build` generate files with hash, every time code change the hash will change.
 
-Often we come up with solution to rename react build files to static file name, but this
-can easily break code splitting and lose cache busting feature.
+Often we come up with workaround by renaming the files to static file name, 
+but this can easily break code splitting and lose potential advantages for production [read here](https://create-react-app.dev/docs/production-build/).
 
-This plugin will let you sync react build assets and your view by replacing ReactAsset markup during maven `process-resources` phase.
+This plugin will let you sync those assets and your server rendered view during maven `process-resources` phase.
 
 
 ## Usage
@@ -72,7 +73,7 @@ Then
 
 ## Sample
 
-There is sample of SpringBoot + ReactJS Sample [here](https://github.com/maasdi/react-assets-maven-plugin-sample)
+There is sample of Spring Boot + React [here](https://github.com/maasdi/react-assets-maven-plugin-sample)
 
 ## Licenses:
 * Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
