@@ -1,20 +1,21 @@
 React Assets Maven Plugin
 =======================
-[![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master&status=passed)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
+[![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
 
-This Maven plugin lets you update react build assets in your view template during build process.
+This Maven plugin help you sync view template (JSP, FreeMarker, Thymeleaf) and react build assets during build process.
 
 ## Objectives
-Build ReactJS + spring-boot application with server rendering feature sometimes very messy, because compiled files naming are dynamically generated.
+Build ReactJS + Spring application with server rendering view sometimes very messy, because `react-scripts build` generated files with random suffix.
 
-Often we come up with solution to rename the compiled file to static predefine naming, but this
-can easily break the code splitting or can caused something unexpected because of server cache.
+Often we come up with solution to rename react build files to static file name, but this
+can easily break code splitting and lose cache busting feature.
 
-This plugin will let you connecting the react assets and server render view during build time.
+This plugin will let you sync react build assets and your view by replacing ReactAsset markup during maven `process-resources` phase.
 
 
 ## Usage
-Given that you have template `/src/main/resources/templates/app.html`
+Given that you have template `/src/main/resources/templates/app.ftlh`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -24,13 +25,13 @@ Given that you have template `/src/main/resources/templates/app.html`
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="manifest" href="/manifest.json" />
     <title>Test Server Render HTML</title>
-    <ReactAssetCss/> <!-- Will replace by plugin -->
+    <ReactAssetCss/> <!-- will replace by plugin -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <ReactAssetRuntime/> <!-- Will replace by plugin -->
-    <ReactAssetJs/> <!-- Will replace by plugin -->
+    <ReactAssetRuntime/> <!-- will replace by plugin -->
+    <ReactAssetJs/> <!-- will replace by plugin -->
   </body>
 </html>
 ```
@@ -48,7 +49,7 @@ Then
         <assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
          <resources>
            <resource>
-             <file>${project.basedir}/src/main/resources/templates/app.html</file>
+             <file>${project.basedir}/src/main/resources/templates/app.ftlh</file>
              <outputDir>${project.basedir}/target/classes/templates</outputDir>
            </resource>
          </resources>
@@ -63,11 +64,11 @@ Then
 
 ## Options
 * `assetsDirectory` - The react assets directory, this directory should be react build folder or folder with similar structure.
-* `resources` - The resources to process, possibly jsp, FreeMarker template or any html file.
-* `manifestName` - The manifest file name, default value is `asset-manifest.json`.
-* `cssMarkup` - The css markup that will be replace. default value is `<ReactAssetCss/>`.
-* `jsMarkup` - The javascript markup that will be replace. default value is `<ReactAssetJs/>`.
-* `runtimeMarkup` - The main-runtime markup that will be replace. default value is `<ReactAssetRuntime/>`.
+* `resources` - The list of resource to process, possibly JSP, FreeMarker template or Thymeleaf file.
+* `manifestName` - The react manifest file name, default value is `asset-manifest.json`.
+* `cssMarkup` - The css markup that will be replace (case sensitive). default value is `<ReactAssetCss/>`.
+* `jsMarkup` - The javascript markup that will be replace (case sensitive). default value is `<ReactAssetJs/>`.
+* `runtimeMarkup` - The main-runtime markup that will be replace (case sensitive). default value is `<ReactAssetRuntime/>`.
 
 ## Licenses:
 * Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
