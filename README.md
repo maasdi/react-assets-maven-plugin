@@ -1,6 +1,7 @@
 React Assets Maven Plugin
 =======================
 [![Build Status](https://travis-ci.org/maasdi/react-assets-maven-plugin.svg?branch=master)](https://travis-ci.org/maasdi/react-assets-maven-plugin/builds)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.maasdi/react-assets-maven-plugin/badge.svg?style=flat&logo=appveyor)](https://maven-badges.herokuapp.com/maven-central/com.github.maasdi/react-assets-maven-plugin)
 
 This Maven plugin help you sync view template (JSP, FreeMarker, Thymeleaf) and react build assets during build process.
 
@@ -13,6 +14,8 @@ but this can easily break code splitting and lose potential advantages for produ
 
 This plugin will let you sync those assets and your server rendered view during maven `process-resources` phase.
 
+## Requirements
+* Maven 3 and Java 1.8
 
 ## Usage
 Given that you have template `/src/main/resources/templates/app.ftlh`
