@@ -44,6 +44,12 @@ public class ReactAssetMojo extends AbstractMojo {
     
     @Parameter(required = false, defaultValue = "<ReactAssetRuntime/>", readonly = true)
     private String runtimeMarkup;
+    
+    @Parameter(required = false, defaultValue = "/", readonly = true)
+    private String publicUrl;
+    
+    @Parameter(required = false, defaultValue = "true", readonly = true)
+    private Boolean inlineRuntimeChunk;
 
     private IAssetProcessor processor = new SimpleAssetProcessor();
 
@@ -60,9 +66,10 @@ public class ReactAssetMojo extends AbstractMojo {
             ctx.setCssMarkup(cssMarkup);
             ctx.setJsMarkup(jsMarkup);
             ctx.setRuntimeMarkup(runtimeMarkup);
-            ctx.setCssAsset(new CssAssetBuilder().build(manifest.getStyles()));
-            ctx.setRuntimeAsset(new RuntimeAssetBuilder(ctx.getAssetsDirectory()).build(manifest.getRuntime()));
-            ctx.setJsAsset(new JsAssetBuilder().build(manifest.getScripts()));
+            ctx.setCssAsset(new CssAssetBuilder(publicUrl).build(manifest.getStyles()));
+            ctx.setRuntimeAsset(new RuntimeAssetBuilder(ctx.getAssetsDirectory(), publicUrl, inlineRuntimeChunk)
+                    .build(manifest.getRuntime()));
+            ctx.setJsAsset(new JsAssetBuilder(publicUrl).build(manifest.getScripts()));
             
             processor.process(manifest, ctx);
 

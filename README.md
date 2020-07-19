@@ -43,7 +43,7 @@ Then
 <plugin>
   <groupId>com.github.maasdi</groupId>
   <artifactId>react-assets-maven-plugin</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <executions>
     <execution>
       <configuration>
@@ -67,9 +67,11 @@ Then
 * `assetsDirectory` - The react assets directory, this directory should be react build folder or folder with similar structure.
 * `resources` - The list of resource to process, possibly JSP, FreeMarker template or Thymeleaf file.
 * `manifestName` - The react manifest file name, default value is `asset-manifest.json`.
-* `cssMarkup` - The css markup that will be replace (case sensitive). default value is `<ReactAssetCss/>`.
-* `jsMarkup` - The javascript markup that will be replace (case sensitive). default value is `<ReactAssetJs/>`.
+* `cssMarkup` - The CSS markup that will be replace (case sensitive). default value is `<ReactAssetCss/>`.
+* `jsMarkup` - The Javascript markup that will be replace (case sensitive). default value is `<ReactAssetJs/>`.
 * `runtimeMarkup` - The main-runtime markup that will be replace (case sensitive). default value is `<ReactAssetRuntime/>`.
+* `publicUrl` - The react asset `PUBLIC_URL`, default value is `/`
+* `inlineRuntimeChunk` - By default runtime-asset will be embed, set this parameter to `false` which will load chunk instead of embedding it in your view.
 
 ## Sample
 

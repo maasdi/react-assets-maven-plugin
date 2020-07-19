@@ -52,9 +52,9 @@ public class SimpleAssetProcessorTest {
         ctx.setCssMarkup("<ReactAssetCss/>");
         ctx.setJsMarkup("<ReactAssetJs/>");
         ctx.setRuntimeMarkup("<ReactAssetRuntime/>");
-        ctx.setCssAsset(new CssAssetBuilder().build(manifest.getStyles()));
-        ctx.setRuntimeAsset(new RuntimeAssetBuilder(ctx.getAssetsDirectory()).build(manifest.getRuntime()));
-        ctx.setJsAsset(new JsAssetBuilder().build(manifest.getScripts()));
+        ctx.setCssAsset(new CssAssetBuilder("/").build(manifest.getStyles()));
+        ctx.setRuntimeAsset(new RuntimeAssetBuilder(ctx.getAssetsDirectory(), "/", true).build(manifest.getRuntime()));
+        ctx.setJsAsset(new JsAssetBuilder("/").build(manifest.getScripts()));
         
         IAssetProcessor processor = new SimpleAssetProcessor();
         processor.process(manifest, ctx);
