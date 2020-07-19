@@ -50,13 +50,13 @@ Then
   <executions>
     <execution>
       <configuration>
-        <assetsDirectory>${project.basedir}/src/main/resources/public</assetsDirectory>
-         <resources>
-           <resource>
-             <file>${project.basedir}/src/main/resources/templates/app.ftlh</file>
-             <outputDir>${project.basedir}/target/classes/templates</outputDir>
-           </resource>
-         </resources>
+        <assetsDirectory>${project.basedir}/frontend/build</assetsDirectory>
+        <resources>
+          <resource>
+            <file>${project.basedir}/src/main/resources/templates/app.ftlh</file>
+            <outputDir>${project.basedir}/target/classes/templates</outputDir>
+          </resource>
+        </resources>
       </configuration>
       <goals>
         <goal>process-asset</goal>
