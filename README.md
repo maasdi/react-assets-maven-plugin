@@ -49,6 +49,8 @@ Then
   <version>1.0.1</version>
   <executions>
     <execution>
+      <id>sync-assets-template</id>
+      <phase>process-resources</phase>
       <configuration>
         <assetsDirectory>${project.basedir}/frontend/build</assetsDirectory>
         <resources>
